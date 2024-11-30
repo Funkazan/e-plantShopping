@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from './CartSlice'; // Adjust the import path based on your folder structure.
 
 function ProductList() {
@@ -10,10 +10,17 @@ function ProductList() {
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();
 
+    const totalQuantity = useSelector(state =>
+        state.cart.items.reduce((total, item) => total + item.quantity, 0)
+    );
+
     const handleAddToCart = (plant) => {
-        dispatch(addItem(plant)); // Dispatch the plant details to the addItem action
-        setAddedToCart({ ...addedToCart, [plant.name]: true }); // Update state for UI feedback
-      };
+        dispatch(addItem({ 
+          name: plant.name, 
+          cost: plant.cost, 
+          image: plant.image, 
+          quantity: 1 
+        }));
     };
 
     const plantsArray = [
@@ -279,15 +286,14 @@ const handlePlantsClick = (e) => {
         </div>
         {!showCart? (
         <div className="product-grid">
+        <h2>Total Items in Cart: {totalQuantity}</h2>
         {plantsArray.map((plant) => (
-          <div className="product-card" key={plant.name}>
+          <div key={plant.name} className="product-card">
+            <img src={plant.image} alt={plant.name} className="product-image" />
             <h3>{plant.name}</h3>
-            <img src={plant.image} alt={plant.name} />
             <p>{plant.description}</p>
-            <p>${plant.cost}</p>
-            <button onClick={() => handleAddToCart(plant)}>
-              {addedToCart[plant.name] ? 'Added' : 'Add to Cart'}
-            </button>
+            <p>Price: ${plant.cost}</p>
+            <button onClick={() => handleAddToCart(plant)}>Add to Cart</button>
           </div>
         ))}
       </div>
@@ -296,5 +302,5 @@ const handlePlantsClick = (e) => {
 )}
     </div>
     );
-
+};
 export default ProductList;
