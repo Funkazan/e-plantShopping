@@ -41,11 +41,48 @@ body {
 
 /* Product Grid */
 .product-grid {
-    display:flex;
-    flex-direction: column;
-    width: 100vw;
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
+}
+.category-section {
+    margin-bottom: 40px;
+}
+.plant-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.plant-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.plant-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.add-to-cart-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 .product-list {
     display: flex;
