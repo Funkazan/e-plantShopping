@@ -41,10 +41,12 @@ body {
 
 /* Product Grid */
 .product-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /*flex-wrap: wrap;*/
     gap: 20px;
-    justify-content: center;
+    /*justify-content: center;*/
+    padding: 20px;
 }
 .category-section {
     margin-bottom: 40px;
@@ -78,6 +80,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%; /* Ensure the button is full width of the card */
 }
 
 .add-to-cart-button:disabled {
@@ -85,28 +88,36 @@ body {
     cursor: not-allowed;
 }
 .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
+    display: grid;
+    /*flex-wrap: wrap;*/
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
     /* background-color: pink; */
     /* justify-content: space-between; */
     padding: 20px;
-    width: 100%;
+    /*width: 100%;*/
     align-items: center;
-    justify-content: center;
+    /*justify-content: center;*/
+    justify-items: center;
 }
 
 /* Product Card */
 .product-card {
-    flex: 0 0 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap */
-    max-width: calc(26.33% - 20px); /* Adjust max-width for 3 cards per row with 20px gap */
-    margin-bottom: 20px;
+    /*flex: 0 0 calc(33.33% - 20px); Adjust width for 3 cards per row with 20px gap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 300px; /* Adjust max-width for 3 cards per row with 20px gap */
+    /*margin-bottom: 20px;*/
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-    position: relative;
+    /*position: relative;*/
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
     
     gap: 20px;
 }
@@ -114,8 +125,8 @@ body {
 /* Pseudo-classes - Hover effect on product button */
 .product-card:hover {
     transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1;
+    /*transition: transform 0.3s ease-in-out;*/
+    /*z-index: 1;*/
 }
 
 .product-title {
@@ -130,8 +141,11 @@ body {
 }
 
 .product-image {
-    max-width: 100%;
+    /*max-width: 100%;*/
+    width: 100%;
     height: 200px; /* Adjust height for better consistency */
+    object-fit: cover;  /* This ensures the images fill the space without distorting */
+    border-radius: 8px;
 }
 
 .product-button {
@@ -263,13 +277,14 @@ body {
   }
   
   @media (max-width: 768px) {
-    .product-card {
-      flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on small screens */
-      max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on small screens */
-    }
+    /*.product-card {
+      flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on small screens 
+      max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on small screens 
+    }*/
     .navbar {
         flex-direction: column; /* Change flex direction to stack items vertically */
         align-items: center; /* Align items to the center of the container */
+        padding: 10px;
       }
     
       .tag {
