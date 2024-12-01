@@ -248,13 +248,13 @@ function ProductList() {
     const styleObj = {
         backgroundColor: '#4CAF50',
         color: '#fff!important',
-        padding: '15px',
+        padding: '1px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         fontSize: '20px',
+        height: 'auto'
     };
-
     const styleA = {
         color: 'white',
         fontSize: '30px',
@@ -268,18 +268,21 @@ function ProductList() {
                     <img
                         src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png"
                         alt="Paradise Nursery"
+                        className='top-image'
                     />
                     <a href="/" style={{ textDecoration: 'none' }}>
                         <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
                         <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
                     </a>
                 </div>
-                <div>
+                <div className="plants-link">
                     <a href="#" onClick={handlePlantsClick} style={styleA}>
-                        Plants
+                    Plants
                     </a>
+                </div>
+                <div className="cart-link">
                     <a href="#" onClick={handleCartClick} style={styleA}>
-                        <h1>Cart</h1>
+                    <h1>Cart</h1>
                     </a>
                 </div>
             </div>
