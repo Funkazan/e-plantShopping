@@ -270,7 +270,9 @@ function ProductList() {
                         alt="Paradise Nursery"
                         className='top-image'
                     />
-                    <a href="/" style={{ textDecoration: 'none' }}>
+                </div>
+                <div>
+                    <a href="/" style={{ textDecoration: 'none' }} className='top-title'>
                         <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
                         <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
                     </a>
