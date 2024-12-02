@@ -50,10 +50,9 @@ body {
     padding: 0px;
 }
 
-.top-title {
-    display: block;
-    margin-left: 50px;     /* Center the image horizontally */
-    padding: 0px;
+.top-title h3, i{
+    position: relative;
+    margin-right: 1400px;
 }
 
 /* Product Grid */
