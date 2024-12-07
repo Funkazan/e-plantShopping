@@ -3,6 +3,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from './CartSlice';
 import CartItem from './CartItem'; // Ensure this exists
 import './ProductList.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
+function CartIcon({ cartItems }) {
+    return (
+      <div className="cart-icon">
+        <FontAwesomeIcon icon={faShoppingCart} />
+        {cartItems.length > 0 && (
+          <span className="cart-badge">{cartItems.length}</span>
+        )}
+      </div>
+    );
+  }
 
 function ProductList() {
     const [showCart, setShowCart] = useState(false);

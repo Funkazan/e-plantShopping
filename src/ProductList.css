@@ -19,7 +19,21 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 20px;
-    height: 200px;
+    /*height: 200px;*/
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+}
+
+.navbar-nav li {
+    margin-right: 20px;
+}
+
+.navbar-nav a {
+    color: white;
+    text-decoration: none;
 }
 
 .navbar .ul {
@@ -41,8 +55,9 @@ body {
 }
 
 .top-image {
-    width: auto;        /* Make the image responsive */
-    max-width: 1000px;  /* Set a maximum width to prevent it from being too wide */
+    width: fit-content;
+    min-width: 130px;        /* Make the image responsive */
+    max-width: 900px;  /* Set a maximum width to prevent it from being too wide */
     height: 100px;       /* Maintain the aspect ratio */
     margin: 0;     /* Center the image horizontally */
     display: block;     /* Ensure the image behaves like a block element */
@@ -51,8 +66,8 @@ body {
 }
 
 .top-title h3, i{
-    position: relative;
-    margin-right: 1400px;
+    position: flex;
+    margin-left: 0px;
 }
 
 /* Product Grid */
@@ -67,6 +82,17 @@ body {
 .category-section {
     margin-bottom: 40px;
 }
+
+.plants-link {
+    margin: 0 auto;
+    margin-right: 20px;
+    width: 1800px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .plant-list {
     display: flex;
     flex-wrap: wrap;
@@ -76,8 +102,8 @@ body {
 .plant-card {
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 16px;
-    width: 300px;
+    padding: 20px;
+    /*width: 300px;*/
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -231,6 +257,10 @@ body {
     color: white;
     display: flex;
 }
+.cart-link {
+    width: 150px;
+    margin-right: 0px;
+}
 .cart_quantity_count{
     margin-top: 16px;
     /* background-color: red; */
@@ -262,6 +292,22 @@ body {
         max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on smaller screens */
     }
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
 /* ProductList.css */
 
 .product-button {
@@ -285,6 +331,13 @@ body {
   .product-button.added-to-cart {
     background-color: grey; /* Grey when product is added */
   }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
   @media (max-width: 1200px) {
     .product-card {
       flex: 1 1 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap on medium screens */
